@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class ResultController extends Controller
 {
+    public function __construct(){
+        return $this->middleware('auth');
+    }
     public function index(){
         $data = [];
         $alternative = Alternative::with('criteria')->get();

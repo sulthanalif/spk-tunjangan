@@ -5,15 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Alternative extends Model
+class Penilaian extends Model
 {
     use HasFactory;
-
-    // protected $table = 'alternative';
+    // protected $table = 'penilaian';
     protected $guarded = [];
-
-
-    public function penilaian(){
-        return $this->hasMany(Penilaian::class);
+    public function sub(){
+        return $this->belongsTo(Sub::class);
     }
 }

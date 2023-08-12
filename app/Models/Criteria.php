@@ -30,4 +30,5 @@ class Criteria extends Model
     {
         return $this->hasMany(Sub::class);
     }
+    
 }

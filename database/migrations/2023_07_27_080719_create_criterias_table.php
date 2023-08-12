@@ -15,11 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->unsignedBigInteger('status');
-            $table->unsignedBigInteger('tipe');
             $table->string('bobot');
             $table->timestamps();
             $table->foreign('status')->references('id')->on('statuses')->onDelete('cascade');
-            $table->foreign('tipe')->references('id')->on('types')->onDelete('cascade');
+            // $table->foreign('tipe')->references('id')->on('types')->onDelete('cascade');
         });
     }
 

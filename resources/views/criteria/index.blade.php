@@ -79,7 +79,7 @@
                 $('#item_id').val(data.id);
                 $('#nama').val(data.nama);
                 $('#status').val(data.status);
-                $('#tipe').val(data.tipe);
+                // $('#tipe').val(data.tipe);
                 $('#bobot').val(data.bobot);
             })
         });

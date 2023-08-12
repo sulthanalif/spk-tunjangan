@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\DB;
 
 class AlternativeController extends Controller
 {
+    public function __construct(){
+        return $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -30,11 +33,6 @@ class AlternativeController extends Controller
 
                 $alternatives = [
                     'nama' => $alternative['nama'],
-                    'absensi' => $alternative['absensi'],
-                    'masa_kerja' => $alternative['masa_kerja'],
-                    'sikap' => $alternative['sikap'],
-                    'performa_kerja' => $alternative['performa_kerja'],
-                    'kedisiplinan' => $alternative['kedisiplinan'],
                 ];
 
                 Alternative::updateOrCreate(['id' => $itemId], $alternatives);
@@ -47,7 +45,7 @@ class AlternativeController extends Controller
         }
 
         return response()->json([
-            'message' => 'Data Alternative berhasil disimpan',
+            'message' => 'Data Penilaian berhasil disimpan',
         ]);
     }
 

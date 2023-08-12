@@ -54,10 +54,19 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('penilaian.index') }}" class="nav-link {{ Route::is('penilaian*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-file-signature"></i>
+              <p>
+                Penilaian Karyawan
+                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
                 <i class="nav-icon fas fa-calculator"></i>
               <p>
-                Perhitungan
+                Hasil
                 
               </p>
             </a>

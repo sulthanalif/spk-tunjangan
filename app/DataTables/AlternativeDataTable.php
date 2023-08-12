@@ -75,21 +75,6 @@ class AlternativeDataTable extends DataTable
             Column::make('nama')
                 ->addClass("text-sm font-weight-normal")
                 ->title('Nama'),
-            Column::make('absensi')
-                ->addClass("text-sm font-weight-normal")
-                ->title('Absensi'),
-            Column::make('masa_kerja')
-                ->addClass("text-sm font-weight-normal")
-                ->title('Masa Kerja'),
-            Column::make('sikap')
-                ->addClass("text-sm font-weight-normal")
-                ->title('Sikap'),
-            Column::make('performa_kerja')
-                ->addClass("text-sm font-weight-normal")
-                ->title('Performa Kerja'),
-            Column::make('kedisiplinan')
-                ->addClass("text-sm font-weight-normal")
-                ->title('Kedisiplinan'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

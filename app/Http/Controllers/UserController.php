@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    public function __construct(){
+        return $this->middleware('auth');
+    }
     public function index(UsersDataTable $dataTable)
     {
         return $dataTable->render('admin.users.index', [

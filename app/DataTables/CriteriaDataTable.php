@@ -30,11 +30,11 @@ class CriteriaDataTable extends DataTable
             return $status->nama;
         })
         ->rawColumns(['status'])
-        ->addColumn('type_formatted', function ($row) {
-            $type = Type::findOrFail($row->tipe);
-            return $type->nama;
-        })
-        ->rawColumns(['type_formatted'])
+        // ->addColumn('type_formatted', function ($row) {
+        //     $type = Type::findOrFail($row->tipe);
+        //     return $type->nama;
+        // })
+        // ->rawColumns(['type_formatted'])
         ->addColumn('action', function ($row) {
             return view('criteria.datatable.action', compact('row'))->render();
         })
@@ -46,9 +46,9 @@ class CriteriaDataTable extends DataTable
      */
     public function query(Criteria $model): QueryBuilder
     {
-        return $model->newQuery()
+        return $model->newQuery();
         // ->orderBy('criterias.bobot', 'desc')
-        ->with('type');
+        // ->with('type');
     }
 
     /**
@@ -96,9 +96,6 @@ class CriteriaDataTable extends DataTable
             Column::make('status')
                 ->addClass("text-sm font-weight-normal")
                 ->title('Status'),
-            Column::make('type_formatted')
-                ->addClass("text-sm font-weight-normal")
-                ->title('Tipe'),
             Column::make('bobot')
                 ->addClass("text-sm font-weight-normal text-center")
                 ->title('Bobot'),

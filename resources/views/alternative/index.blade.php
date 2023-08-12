@@ -76,11 +76,6 @@
                 $('#saveBtn').html("Simpan");
                 $('#item_id').val(data.id);
                 $('#nama').val(data.nama);
-                $('#absensi').val(data.absensi);
-                $('#masa_kerja').val(data.masa_kerja);
-                $('#sikap').val(data.sikap);
-                $('#performa_kerja').val(data.performa_kerja);
-                $('#kedisiplinan').val(data.kedisiplinan);
             })
         });
 

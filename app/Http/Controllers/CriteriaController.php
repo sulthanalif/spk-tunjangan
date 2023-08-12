@@ -14,6 +14,9 @@ use App\Http\Requests\CriteriaRequest;
 
 class CriteriaController extends Controller
 {
+    public function __construct(){
+        return $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -37,7 +40,6 @@ class CriteriaController extends Controller
                 $criterias = [
                     'nama' => $criteria['nama'],
                     'status' => $criteria['status'],
-                    'tipe' => $criteria['tipe'],
                     'bobot' => $criteria['bobot'],
                     
                 ];

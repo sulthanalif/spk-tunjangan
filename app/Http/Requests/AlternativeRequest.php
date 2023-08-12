@@ -23,11 +23,6 @@ class AlternativeRequest extends FormRequest
     {
         return [
             'nama' => 'required',
-            'absensi' => 'required',
-            'masa_kerja' => 'required',
-            'sikap' => 'required',
-            'performa_kerja' => 'required',
-            'kedisiplinan' => 'required',
         ];
     }
 }

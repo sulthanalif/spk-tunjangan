@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subs', function (Blueprint $table) {
+        Schema::create('penilaians', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('criteria_id');
-            $table->string('keterangan');
-            $table->string('nilai');
+            $table->unsignedBigInteger('alternative_id');
+            $table->unsignedBigInteger('sub_id');
+            $table->foreign('alternative_id')->references('id')->on('alternatives')->onDelete('cascade');
+            $table->foreign('sub_id')->references('id')->on('subs')->onDelete('cascade');
             $table->timestamps();
-            $table->foreign('criteria_id')->references('id')->on('criterias')->onDelete('cascade');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subs');
+        Schema::dropIfExists('penilaians');
     }
 };

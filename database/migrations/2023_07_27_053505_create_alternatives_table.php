@@ -14,11 +14,6 @@ return new class extends Migration
         Schema::create('alternatives', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('absensi');
-            $table->string('masa_kerja');
-            $table->string('sikap');
-            $table->string('performa_kerja');
-            $table->string('kedisiplinan');
             $table->timestamps();
         });
     }

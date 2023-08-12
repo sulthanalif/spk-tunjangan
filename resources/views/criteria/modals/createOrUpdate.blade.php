@@ -26,7 +26,7 @@
                 </select>
                 {{-- <input type="text" class="form-control form-control-sm mr-2" name="status" id="status"> --}}
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="tipe">tipe<span class="text-danger">*</span></label>
                 <select class="custom-select" name="tipe" id="tipe">
                     <option selected disabled>--Pilih Tipe--</option>
@@ -34,8 +34,8 @@
                         <option value="{{ $type->id }}">{{ $type->nama }}</option>
                     @endforeach
                 </select>
-                {{-- <input type="text" class="form-control form-control-sm mr-2" name="tipe" id="tipe"> --}}
-            </div>
+                <input type="text" class="form-control form-control-sm mr-2" name="tipe" id="tipe">
+            </div> --}}
             <div class="form-group">
                 <label for="bobot">bobot<span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm mr-2" name="bobot" id="bobot">

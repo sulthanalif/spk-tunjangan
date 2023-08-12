@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\DB;
 
 class SubController extends Controller
 {
+    public function __construct(){
+        return $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -45,19 +48,19 @@ class SubController extends Controller
      */
     public function store()
     {
+
         try {
             DB::transaction(function () {
 
                 request()->validate([
                     'keterangan' => 'required',
-                    'value' => 'required',
+                    
                     'nilai' => 'required',
-                ]);
-
+                ]); 
                 Sub::create([
                     'criteria_id' => request('criteria_id'),
                     'keterangan' => request('keterangan'),
-                    'value' => request('value'),
+                    
                     'nilai' => request('nilai'),
                 ]);
 
@@ -83,17 +86,33 @@ class SubController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Sub $sub)
+    public function edit()
     {
-        //
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Sub $sub)
+    public function update($id)
     {
-        //
+        try {
+            $sub = Sub::findOrFail($id);
+                request()->validate([
+                    'keterangan' => 'required',
+                    'nilai' => 'required',
+                ]);
+
+                $sub->update([
+                    'keterangan' => request('keterangan'),
+                    'nilai' => request('nilai'),
+                ]);
+        } catch (InvalidArgumentException $e) {
+            $message = $e->getMessage();
+            return redirect()->back()->with('message', $message);
+        }
+
+        return redirect()->back()->with('message', 'Data Sub Kriteria berhasil diedit');
     }
 
     /**
@@ -111,6 +130,6 @@ class SubController extends Controller
             // Hapus data
             
     
-            return redirect()->route('subcriteria.index')->with('success', 'Data berhasil dihapus!');
+            return redirect()->route('subcriteria.index')->with('message', 'Data berhasil dihapus!');
     }
 }

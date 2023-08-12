@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card-body p-3 pb-0">
+            <div class="card-body text-sm p-3 pb-0">
                 <table class="table">
                     <thead>
                       <tr>
@@ -48,20 +48,23 @@
                         <td>{{ $item->keterangan }}</td>
                         <td>{{ $item->nilai }}</td>
                         <td>
+                            
                             <form action="{{ route('hapus_sub', ['id' => $item->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Hapus</button>
+                                <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#editModal{{ $item->id }}"><i class="far fa-edit"></i></button>
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                       </tr>
+                      @include('sub.modals.createOrUpdate')
                       @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    @include('sub.modals.createOrUpdate')
+    
     
     @endforeach
 </div>
@@ -129,23 +132,21 @@
             $('#modal-md').modal('show');
         });
 
-        // $('body').on('click', '#editItem', function() {
-        //     var item_id = $(this).data('id');
-        //     $.get("{{ route('subcriteria.index') }}" + '/' + item_id + '/edit', function(data) {
-        //         $('#modal-md').modal('show');
-        //         setTimeout(function() {
-        //             $('#nama').focus();
-        //         }, 500);
-        //         $('.modal-title').html("Edit Sub Kriteria");
-        //         $('#saveBtn').removeAttr('disabled');
-        //         $('#saveBtn').html("Simpan");
-        //         $('#item_id').val(data.id);
-        //         $('#nama').val(data.nama);
-        //         $('#status').val(data.status);
-        //         $('#tipe').val(data.tipe);
-        //         $('#bobot').val(data.bobot);
-        //     })
-        // });
+        $('body').on('click', '#editItem', function() {
+            var item_id = $(this).data('id');
+            $.get("{{ route('subcriteria.index') }}" + '/' + item_id + '/edit', function(data) {
+                $('#modal-md').modal('show');
+                setTimeout(function() {
+                    $('#keterangan').focus();
+                }, 500);
+                $('.modal-title').html("Edit Sub Kriteria");
+                $('#saveBtn').removeAttr('disabled');
+                $('#saveBtn').html("Simpan");
+                $('#item_id').val(data.id);
+                $('#keterangan').val(data.keterangan);
+                $('#nilai').val(data.nilai);
+            })
+        });
 
         // $('body').on('click', '.deleteBtn', function(e) {
         //     e.preventDefault();
