@@ -21,7 +21,7 @@ class Criteria extends Model
         return $this->belongsTo(Type::class);
     }
     
-    public function status()
+    public function status_id()
     {
         return $this->belongsTo(Status::class);
     }

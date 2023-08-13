@@ -13,4 +13,7 @@ class Penilaian extends Model
     public function sub(){
         return $this->belongsTo(Sub::class);
     }
+    public function alternative(){
+        return $this->belongsTo(Alternative::class);
+    }
 }

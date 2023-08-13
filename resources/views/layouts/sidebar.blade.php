@@ -63,7 +63,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="{{ route('result.index') }}" class="nav-link {{ Route::is('result*') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-calculator"></i>
               <p>
                 Hasil

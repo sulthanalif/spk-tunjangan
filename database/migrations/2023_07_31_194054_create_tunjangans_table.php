@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('keterangan');
             $table->string('nilai');
-            $table->string('value');
+            // $table->string('value');
             $table->timestamps();
         });
     }

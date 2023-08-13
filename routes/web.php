@@ -1,14 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\CriteriaController;
-// use App\Http\Controllers\AlteController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\AlternativeController;
-use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\SubController;
+use App\Http\Controllers\LoginController;
+// use App\Http\Controllers\AlteController;
+use App\Http\Controllers\ResultController;
 use App\Http\Controllers\TestingController;
+use App\Http\Controllers\CriteriaController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PenilaianController;
+use App\Http\Controllers\AlternativeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,9 @@ Route::middleware('auth')->group(function() {
     Route::resource('subcriteria', SubController::class);
     Route::get('/subcriteria/{id}', [SubController::class, 'destroy'])->name('hapus_sub');
     Route::post('/subcriteria/update/{id}', [SubController::class, 'update'])->name('update_sub');
-    Route::resource('/penilaian', PenilaianController::class);
+    Route::resource('penilaian', PenilaianController::class);
+    Route::get('/result', [ResultController::class, 'index'])->name('result.index');
+    Route::get('/result/print', [ResultController::class, 'printData'])->name('print_data');
 
     Route::resource('testing', TestingController::class);
     

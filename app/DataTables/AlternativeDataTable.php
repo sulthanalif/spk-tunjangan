@@ -34,7 +34,7 @@ class AlternativeDataTable extends DataTable
      */
     public function query(Alternative $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->newQuery()->orderBy('created_at', 'ASC');
     }
 
     /**
