@@ -47,7 +47,7 @@ class AlternativeDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
-                    ->orderBy(1)
+                    ->orderBy(2)
                     ->selectStyleSingle()
                     ->buttons([
                         Button::make('excel'),
@@ -75,6 +75,10 @@ class AlternativeDataTable extends DataTable
             Column::make('nama')
                 ->addClass("text-sm font-weight-normal")
                 ->title('Nama'),
+            Column::make('created_at')
+                ->addClass("text-sm font-weight-normal")
+                ->hidden()
+                ->title('Tanggal Dibuat'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

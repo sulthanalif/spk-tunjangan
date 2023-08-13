@@ -83,9 +83,9 @@ class ResultController extends Controller
              }
 
 
+                return view('result.index', compact('criterias', 'alternatives', 'normalisasi', 'sawScores', 'rankings'));
             
-          // Kembali ke view dengan data hasil normalisasi dan hasil akhir (sawScores)
-          return view('result.index', compact('criterias', 'alternatives', 'normalisasi', 'sawScores', 'rankings'));
+            // Kembali ke view dengan data hasil normalisasi dan hasil akhir (sawScores)
         
         // $alternatives = Alternative::with('penilaian.sub')->get();
         // $criterias = Criteria::with('sub')->orderBy('created_at','ASC')->get();
