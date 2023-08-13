@@ -59,7 +59,7 @@ class PenilaianController extends Controller
             ], 400);
         }
 
-        return redirect()->route('penilaian.index')->with('success', 'Data Penilaian berhasil Disimpan');
+        return redirect()->back()->with('success', 'Data Penilaian berhasil Disimpan');
     }
 
     /**
