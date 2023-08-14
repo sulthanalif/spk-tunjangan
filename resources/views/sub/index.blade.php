@@ -65,7 +65,7 @@
         </div>
     </div>
     
-    
+    @include('sub.modals.create')
     @endforeach
 </div>
 </div>

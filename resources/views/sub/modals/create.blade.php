@@ -1,6 +1,5 @@
-
-
-<div class="modal fade" id="editModal{{ $item->id }}">
+<!-- Modal Create And Edit -->
+<div class="modal fade" id="exampleModal{{ $kriteria->id }}">
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
@@ -9,18 +8,18 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form id="" name="" action="{{ route('update_sub', ['id' => $item->id]) }}" method="post">
+        <form id="" name="" action="{{ route('subcriteria.store') }}" method="post">
         @csrf
-        {{-- <input type="text" value="{{ $item->id }}"> --}}
+        <input type="hidden" name="criteria_id" id="criteria_id" value="{{ $kriteria->id }}">
         <div class="modal-body">
             <div class="form-group">
                 <label for="keterangan">Keterangan<span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm mr-2" name="keterangan" value="{{ $item->keterangan }}" id="keterangan" required>
+                <input type="text" class="form-control form-control-sm mr-2" name="keterangan" id="keterangan" required>
             </div>
             
             <div class="form-group">
                 <label for="status">nilai<span class="text-danger">*</span></label>
-                <input type="number" class="form-control form-control-sm mr-2" name="nilai" value="{{ $item->nilai }}" id="nilai" required>
+                <input type="number" class="form-control form-control-sm mr-2" name="nilai" id="nilai" required>
                 {{-- </select> --}}
                 {{-- <input type="text" class="form-control form-control-sm mr-2" name="status" id="status"> --}}
             </div>
@@ -35,4 +34,7 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+<!-- /.modal -->
+
+
 <!-- /.modal -->
